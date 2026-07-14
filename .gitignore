@@ -12,3 +12,4 @@ backend/generated_memes/
 backend/concept_graphs/
 backend/data_viz/
 .env
+backend/venv311/
