@@ -1,0 +1,14 @@
+backend/venv310/
+frontend/node_modules/
+backend/vosk-model-*/
+backend/__pycache__/
+backend/.ipynb_checkpoints/
+*.pyc
+*.mp3
+*.wav
+backend/uploads/
+backend/generated_images/
+backend/generated_memes/
+backend/concept_graphs/
+backend/data_viz/
+.env

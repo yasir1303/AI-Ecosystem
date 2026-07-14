@@ -1,0 +1,54 @@
+/* === Tailwind base setup === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === v0.dev global theme === */
+@import "./v0_design/app/globals.css";
+
+/* === Optional: Keep a few defaults if you want === */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* optional: code font if you use code blocks */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* === v0.dev Tailwind utility extensions === */
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-emerald-500/20;
+  }
+
+  .dark-gradient {
+    @apply from-gray-900 via-gray-800 to-gray-700;
+  }
+}
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #1f2937, #374151, #1f2937);
+  background-size: 200% 200%;
+  animation: shimmer 2s infinite;
+}

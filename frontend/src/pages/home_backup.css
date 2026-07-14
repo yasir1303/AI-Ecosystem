@@ -1,0 +1,139 @@
+/* ===== TRANSBOT Home Page – Final Elegant Ornamental Border ===== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: url("./marble_bg.png") no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  color: #222;
+}
+
+
+/* ===== Container ===== */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 100px;
+  text-align: center;
+}
+
+/* ===== Title Section ===== */
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 15px;
+}
+
+.logo {
+  height: 75px;
+  width: auto;
+}
+
+.title-text {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #b88a32;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 8px rgba(160, 120, 40, 0.3);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #3c2f1b;
+  font-weight: 500;
+  margin-top: 10px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+/* ===== Card Grid ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1300px;
+  width: 100%;
+  
+}
+
+/* ===== Card Base ===== */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, #fdf7e9 0%, #fcf2de 100%);
+  border: 2px solid #caa64a;
+  border-radius: 14px;
+  padding: 45px 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 18px rgba(200, 160, 70, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+  
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700'>\
+    <rect x='25' y='25' width='1150' height='650' fill='none' stroke='%23caa64a' stroke-width='2'/>\
+    <path d='M80,120 Q60,40 160,40 Q100,60 80,120' fill='none' stroke='%23caa64a' stroke-width='2'/>\
+    <path d='M1040,40 Q1140,40 1120,120 Q1100,60 1040,40' fill='none' stroke='%23caa64a' stroke-width='2'/>\
+    <path d='M80,580 Q60,660 160,660 Q100,640 80,580' fill='none' stroke='%23caa64a' stroke-width='2'/>\
+    <path d='M1040,660 Q1140,660 1120,580 Q1100,640 1040,660' fill='none' stroke='%23caa64a' stroke-width='2'/>\
+    <path d='M60,60 Q90,45 120,60 Q90,75 60,60' fill='none' stroke='%23caa64a' stroke-width='1.8'/>\
+    <path d='M1140,60 Q1110,45 1080,60 Q1110,75 1140,60' fill='none' stroke='%23caa64a' stroke-width='1.8'/>\
+    <path d='M60,640 Q90,655 120,640 Q90,625 60,640' fill='none' stroke='%23caa64a' stroke-width='1.8'/>\
+    <path d='M1140,640 Q1110,655 1080,640 Q1110,625 1140,640' fill='none' stroke='%23caa64a' stroke-width='1.8'/>\
+  </svg>") center/100% 100% no-repeat;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* ===== Card Content ===== */
+.card .icon {
+  font-size: 2.8rem;
+  color: #b88a32;
+  margin-bottom: 18px;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1c1c1c;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== Hover Effect ===== */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(180, 140, 40, 0.25);
+  background: linear-gradient(180deg, #fff9ea 0%, #fcf3df 100%);
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 40px 20px;
+  }
+}

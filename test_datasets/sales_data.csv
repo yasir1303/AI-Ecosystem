@@ -1,0 +1,9 @@
+Quarter,Month,Region,Sales,Profit,Customers
+Q1,January,North,12000,2400,120
+Q1,February,South,15000,3100,150
+Q2,April,East,18000,4100,180
+Q2,May,West,20000,5000,200
+Q3,July,North,17000,3400,170
+Q3,August,South,22000,4600,220
+Q4,October,East,25000,6000,250
+Q4,November,West,30000,7000,300

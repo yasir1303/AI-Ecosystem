@@ -1,0 +1,206 @@
+/* ✨ TransBot Summarizer – Clean Marble Gold Edition (No Ornament Border) ✨ */
+
+.page-summarizer {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #3b2b0b;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 60px 20px;
+}
+
+/* Main Container */
+.summarizer-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 250, 240, 0.95);
+  border: 2px solid #d4a646;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(200, 160, 80, 0.25);
+  padding: 40px;
+  text-align: center;
+}
+
+/* Back Button */
+.back-btn {
+  background: linear-gradient(180deg, #fff8dc, #f3d37c);
+  border: 1.5px solid #d4a646;
+  color: #4b3b09;
+  padding: 6px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+.back-btn:hover {
+  background: linear-gradient(180deg, #f8e6a0, #e4c66e);
+  box-shadow: 0 4px 12px rgba(180, 120, 30, 0.3);
+}
+
+/* Title */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b88a32;
+  text-shadow: 0 2px 6px rgba(212, 166, 70, 0.4);
+  margin-bottom: 15px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.1rem;
+  color: #5b4515;
+  margin-bottom: 25px;
+}
+
+/* Input Box */
+.input-box {
+  width: 100%;
+  background: #fffdf8;
+  border: 2px solid #d4a646;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 1rem;
+  color: #3b2b0b;
+  outline: none;
+  resize: none;
+  transition: 0.3s;
+}
+.input-box:focus {
+  border-color: #b88a32;
+  box-shadow: 0 0 10px rgba(212, 166, 70, 0.3);
+}
+
+/* Summarize Button */
+.summarize-btn {
+  margin-top: 20px;
+  background: linear-gradient(180deg, #d4a646, #b88a32);
+  border: none;
+  color: #fffaf1;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(180, 120, 30, 0.3);
+}
+.summarize-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(180, 120, 30, 0.4);
+}
+.summarize-btn:disabled {
+  background: linear-gradient(180deg, #f3e5b8, #d1b971);
+  color: #9b8a4e;
+  cursor: not-allowed;
+}
+
+/* Summary Box */
+.summary-box {
+  margin-top: 30px;
+  background: #fffdf8;
+  border: 2px solid #d4a646;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(200, 160, 80, 0.25);
+  text-align: left;
+}
+.summary-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #b88a32;
+  margin-bottom: 10px;
+}
+.summary-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3b2b0b;
+}
+
+/* Copy Button */
+.copy-btn {
+  margin-top: 15px;
+  background: linear-gradient(180deg, #d4a646, #b88a32);
+  border: none;
+  color: #fffaf1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.copy-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(180, 120, 30, 0.4);
+}
+
+/* History Section */
+.history-section {
+  margin-top: 40px;
+  background: rgba(255, 250, 240, 0.95);
+  border: 2px solid #d4a646;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(200, 160, 80, 0.25);
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.history-title {
+  font-size: 1.3rem;
+  color: #b88a32;
+  font-weight: 600;
+}
+.clear-history-btn {
+  background: linear-gradient(180deg, #fff8dc, #f3d37c);
+  border: 1.5px solid #d4a646;
+  color: #4b3b09;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.clear-history-btn:hover {
+  background: linear-gradient(180deg, #f8e6a0, #e4c66e);
+}
+.history-item {
+  background: #fffdf8;
+  border: 1.5px solid #d4a646;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(180, 120, 30, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .summarizer-container {
+    padding: 25px;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+}
+/* ✅ Word Count */
+.word-count {
+  text-align: center;
+  margin: 12px 0 20px 0;
+  background: rgba(255, 247, 230, 0.9);
+  border: 2px solid #d4a646;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 6px 14px;
+  color: #4b3b09;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: inset 0 0 10px rgba(212, 166, 70, 0.2);
+}

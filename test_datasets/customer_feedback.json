@@ -1,0 +1,27 @@
+[
+    {
+        "Customer": "John Doe",
+        "Feedback": "Excellent product quality and fast delivery.",
+        "Rating": 5
+    },
+    {
+        "Customer": "Aisha Khan",
+        "Feedback": "Good service but packaging could be improved.",
+        "Rating": 4
+    },
+    {
+        "Customer": "Ravi Patel",
+        "Feedback": "Average experience. Customer support was slow.",
+        "Rating": 3
+    },
+    {
+        "Customer": "Maria Gomez",
+        "Feedback": "Very satisfied! The team was responsive and helpful.",
+        "Rating": 5
+    },
+    {
+        "Customer": "Lee Wei",
+        "Feedback": "Product was damaged during shipping.",
+        "Rating": 2
+    }
+]
