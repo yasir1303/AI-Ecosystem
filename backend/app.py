@@ -11,9 +11,15 @@ import matplotlib.pyplot as plt
 import io
 import queue
 import base64
-import sounddevice as sd
+try:
+    import sounddevice as sd
+except Exception:
+    sd = None
 import speech_recognition as sr
-import vosk
+try:
+    import vosk
+except Exception:
+    vosk = None
 import uuid,math, random,textwrap
 import json
 import numpy as np
@@ -47,6 +53,12 @@ phi3_lock = threading.Lock()
 # Flask setup
 app = Flask(__name__)
 CORS(app)
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "status": "online",
+        "message": "AI Ecosystem backend is running"
+    })
 
 AUDIO_DIR = os.path.join(os.getcwd(), "static", "audio")
 os.makedirs(AUDIO_DIR, exist_ok=True)
@@ -62,15 +74,29 @@ UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Tesseract Path
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# Use Windows Tesseract path only on the local Windows computer.
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = (
+        r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    )
 
 # Paths
 AUDIO_OUTPUT = "translated_audio.mp3"
-VOSK_MODELS = {
-    "en": vosk.Model(r"C:\Users\mohammed yasir ahmed\MY_AI_PROJECT\backend\vosk-model-small-en-us-0.15"),
-    "hi": vosk.Model(r"C:\Users\mohammed yasir ahmed\MY_AI_PROJECT\backend\vosk-model-small-hi-0.22"),
-    "ru": vosk.Model(r"C:\Users\mohammed yasir ahmed\MY_AI_PROJECT\backend\vosk-model-small-ru-0.22"),
-}
+# Load offline Vosk models only on the local Windows computer.
+VOSK_MODELS = {}
+
+if os.name == "nt" and vosk is not None:
+    vosk_paths = {
+        "en": r"C:\Users\mohammed yasir ahmed\MY_AI_PROJECT\backend\vosk-model-small-en-us-0.15",
+        "hi": r"C:\Users\mohammed yasir ahmed\MY_AI_PROJECT\backend\vosk-model-small-hi-0.22",
+        "ru": r"C:\Users\mohammed yasir ahmed\MY_AI_PROJECT\backend\vosk-model-small-ru-0.22",
+    }
+
+    for language, model_path in vosk_paths.items():
+        if os.path.exists(model_path):
+            VOSK_MODELS[language] = vosk.Model(model_path)
+        else:
+            print(f"Vosk model missing: {model_path}")
 
 # Queues
 q = queue.Queue()
@@ -117,6 +143,15 @@ def recognize_speech(language="en", audio_file=None):
     Recognizes speech either from a live microphone stream (default)
     or from an uploaded audio file (if provided).
     """
+    if vosk is None or not VOSK_MODELS:
+        raise RuntimeError(
+            "Offline voice recognition is available only in the local version."
+        )
+
+    if audio_file is None and sd is None:
+        raise RuntimeError(
+            "Live microphone access is not available on the cloud server."
+        )
     global q
     q.queue.clear()
     model = VOSK_MODELS.get(language, VOSK_MODELS["en"])
